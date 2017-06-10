@@ -1,0 +1,9 @@
+Primordial,Java,stdlib,none
+Primordial,Java,jarFile,primordial.jar.model
+Primordial,Java,jarFile,lib/commons-net-3.1.jar
+Application,Java,binaryDir,build/example-ftp/test/ftp
+Application,Java,binaryDir,build/example-ftp/uk/co/marcoratto/file/maketree
+Application,Java,binaryDir,build/example-ftp/uk/co/marcoratto/ftp
+Application,Java,binaryDir,build/example-ftp/uk/co/marcoratto/ftp/listeners
+Application,Java,binaryDir,build/example-ftp/uk/co/marcoratto/ftp/test
+Application,Java,binaryDir,build/example-ftp/uk/co/marcoratto/util

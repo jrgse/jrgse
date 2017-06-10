@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server className="org.apache.catalina.core.StandardServer" port="8005" debug="0" shutdown="SHUTDOWN">
+  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener" debug="0" jsr77Names="false"/>
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" debug="0"/>
+  <GlobalNamingResources>
+    <Environment name="simpleValue" override="true" type="java.lang.Integer" value="30"/>
+    <Resource name="UserDatabase" type="org.apache.catalina.UserDatabase" scope="Shareable" description="User database that can be updated and saved" auth="Container"/>
+    <ResourceParams name="UserDatabase">
+      <parameter>
+        <name>factory</name>
+        <value>org.apache.catalina.users.MemoryUserDatabaseFactory</value>
+      </parameter>
+      <parameter>
+        <name>pathname</name>
+        <value>conf/tomcat-users.xml</value>
+      </parameter>
+    </ResourceParams>
+  </GlobalNamingResources>
+  <Service className="org.apache.catalina.core.StandardService" debug="0" name="Tomcat-Standalone">
+    <Connector className="org.apache.coyote.tomcat4.CoyoteConnector" redirectPort="8443" bufferSize="2048" port="8180" scheme="http" connectionTimeout="20000" enableLookups="true" secure="false" protocolHandlerClassName="org.apache.coyote.http11.Http11Protocol" debug="0" maxKeepAliveRequests="100" disableUploadTimeout="true" proxyPort="0" tcpNoDelay="true" minProcessors="5" maxProcessors="75" acceptCount="100" useURIValidationHack="false" compression="off" connectionLinger="-1">
+      <Factory className="org.apache.catalina.net.DefaultServerSocketFactory"/>
+    </Connector>
+    <Engine className="org.apache.catalina.core.StandardEngine" mapperClass="org.apache.catalina.core.StandardEngineMapper" debug="0" defaultHost="www.primo.dominio" name="Standalone">
+      <Host className="org.apache.catalina.core.StandardHost" appBase="webapps" mapperClass="org.apache.catalina.core.StandardHostMapper" liveDeploy="true" autoDeploy="true" configClass="org.apache.catalina.startup.ContextConfig" errorReportValveClass="org.apache.catalina.valves.ErrorReportValve" debug="0" deployXML="true" contextClass="org.apache.catalina.core.StandardContext" unpackWARs="true" name="www.quinto.dominio">
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Documentation" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/tomcat-docs" cookies="true" path="/tomcat-docs" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/nn" cookies="true" path="/nn" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Administration Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/admin" cookies="true" path="/admin" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="localhost_admin_log." directory="logs" timestamp="true" suffix=".txt"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/dynweb" cookies="true" path="/dynweb" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Webdav Content Management" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/webdav" cookies="true" path="/webdav" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/c" cookies="true" path="/c" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Examples" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/examples" cookies="true" path="/examples" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Ejb name="ejb/Account" type="Entity" description="Example EJB Reference" remote="com.mycompany.mypackage.Account" home="com.mycompany.mypackage.AccountHome"/>
+          <Environment name="minExemptions" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/bar/name2" override="true" type="java.lang.Boolean" value="true"/>
+          <Environment name="name3" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/name4" override="true" type="java.lang.Integer" value="10"/>
+          <Environment name="foo/name1" override="true" type="java.lang.String" value="value1"/>
+          <LocalEjb name="ejb/ProcessOrder" local="com.mycompany.mypackage.ProcessOrder" type="Session" description="Example Local EJB Reference" home="com.mycompany.mypackage.ProcessOrderHome"/>
+          <Resource name="mail/Session" type="javax.mail.Session" scope="Shareable" auth="Container"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/garcuri" cookies="true" path="/garcuri" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/d" cookies="true" path="/d" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/voip" cookies="true" path="/voip" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Manager Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/manager" cookies="true" path="/manager" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <ResourceLink name="users" type="org.apache.catalina.UserDatabase" global="UserDatabase"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/a" cookies="true" path="/a" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/ns" cookies="true" path="/ns" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="d" cookies="true" path="" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="www.quinto.dominio_log." directory="logs" timestamp="true" suffix=".txt"/>
+        <Valve className="org.apache.catalina.valves.AccessLogValve" rotatable="true" debug="0" prefix="www.quinto.dominio_access_log." directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot;" resolveHosts="false" suffix=".txt"/>
+      </Host>
+      <Host className="org.apache.catalina.core.StandardHost" appBase="webapps" mapperClass="org.apache.catalina.core.StandardHostMapper" liveDeploy="true" autoDeploy="true" configClass="org.apache.catalina.startup.ContextConfig" errorReportValveClass="org.apache.catalina.valves.ErrorReportValve" debug="0" deployXML="true" contextClass="org.apache.catalina.core.StandardContext" unpackWARs="true" name="e.primo.dominio">
+      <Alias>e.a.co</Alias>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="true" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="false" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/e" cookies="true" path="/e" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <DefaultContext className="org.apache.catalina.core.StandardDefaultContext" name="defaultContext" crossContext="false" wrapperClass="org.apache.catalina.core.StandardWrapper" reloadable="true" useNaming="true" swallowOutput="false" cookies="true">
+        </DefaultContext>
+      </Host>
+      <Host className="org.apache.catalina.core.StandardHost" appBase="webapps" mapperClass="org.apache.catalina.core.StandardHostMapper" liveDeploy="true" autoDeploy="true" configClass="org.apache.catalina.startup.ContextConfig" errorReportValveClass="org.apache.catalina.valves.ErrorReportValve" debug="0" deployXML="true" contextClass="org.apache.catalina.core.StandardContext" unpackWARs="true" name="www.quarto.dominio">
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Documentation" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/tomcat-docs" cookies="true" path="/tomcat-docs" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="false" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/nn" cookies="true" path="/nn" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Administration Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/admin" cookies="true" path="/admin" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="localhost_admin_log." directory="logs" timestamp="true" suffix=".txt"/>
+          <Valve className="org.apache.catalina.valves.RemoteAddrValve" debug="0" allow="127.0.0.1,192.168.1.5,192.168.1.4,193.5.152.22,193.5.152.30"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/dynweb" cookies="true" path="/dynweb" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Webdav Content Management" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/webdav" cookies="true" path="/webdav" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/c" cookies="true" path="/c" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Examples" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/examples" cookies="true" path="/examples" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Ejb name="ejb/Account" type="Entity" description="Example EJB Reference" remote="com.mycompany.mypackage.Account" home="com.mycompany.mypackage.AccountHome"/>
+          <Environment name="minExemptions" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/bar/name2" override="true" type="java.lang.Boolean" value="true"/>
+          <Environment name="foo/name4" override="true" type="java.lang.Integer" value="10"/>
+          <Environment name="name3" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/name1" override="true" type="java.lang.String" value="value1"/>
+          <LocalEjb name="ejb/ProcessOrder" local="com.mycompany.mypackage.ProcessOrder" type="Session" description="Example Local EJB Reference" home="com.mycompany.mypackage.ProcessOrderHome"/>
+          <Resource name="mail/Session" type="javax.mail.Session" scope="Shareable" auth="Container"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/garcuri" cookies="true" path="/garcuri" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/d" cookies="true" path="/d" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/voip" cookies="true" path="/voip" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Manager Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/manager" cookies="true" path="/manager" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="localhost_manager_log." directory="logs" timestamp="true" suffix=".txt"/>
+          <Valve className="org.apache.catalina.valves.RemoteAddrValve" debug="0" allow="127.0.0.1,192.168.1.5,192.168.1.6,193.5.152.22,193.5.152.30"/>
+          <ResourceLink name="users" type="org.apache.catalina.UserDatabase" global="UserDatabase"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/a" cookies="true" path="/a" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/ns" cookies="true" path="/ns" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="false" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="nn" cookies="true" path="" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="www.quarto.dominio_log." directory="logs" timestamp="true" suffix=".txt"/>
+        <Valve className="org.apache.catalina.valves.AccessLogValve" rotatable="true" debug="0" prefix="www.quarto.dominio_access_log." directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot;" resolveHosts="false" suffix=".txt"/>
+      </Host>
+      <Host className="org.apache.catalina.core.StandardHost" appBase="webapps" mapperClass="org.apache.catalina.core.StandardHostMapper" liveDeploy="true" autoDeploy="true" configClass="org.apache.catalina.startup.ContextConfig" errorReportValveClass="org.apache.catalina.valves.ErrorReportValve" debug="0" deployXML="true" contextClass="org.apache.catalina.core.StandardContext" unpackWARs="true" name="www.primo.dominio">
+      <Alias>www.terzo.dominio</Alias>
+      <Alias>www.secondo.dominio</Alias>
+      <Alias>www.settimo.dominio</Alias>
+      <Alias>www.sesto.dominio</Alias>
+      <Alias>www.ottavo.dominio</Alias>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Documentation" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/tomcat-docs" cookies="true" path="/tomcat-docs" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/nn" cookies="true" path="/nn" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Administration Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/admin" cookies="true" path="/admin" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="localhost_admin_log." directory="logs" timestamp="true" suffix=".txt"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/dynweb" cookies="true" path="/dynweb" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Webdav Content Management" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/webdav" cookies="true" path="/webdav" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/c" cookies="true" path="/c" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="true" reloadable="true" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" displayName="Tomcat Examples" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="examples" cookies="true" path="/examples" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="localhost_examples_log." directory="logs" timestamp="true" suffix=".txt"/>
+          <Parameter name="context.param.name" override="false" value="context.param.value"/>
+          <Ejb name="ejb/Account" type="Entity" description="Example EJB Reference" remote="com.mycompany.mypackage.Account" home="com.mycompany.mypackage.AccountHome"/>
+          <Ejb name="ejb/EmplRecord" type="Entity" remote="com.wombat.empl.EmployeeRecord" home="com.wombat.empl.EmployeeRecordHome"/>
+          <Environment name="maxExemptions" override="true" type="java.lang.Integer" value="15"/>
+          <Environment name="minExemptions" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/bar/name2" override="true" type="java.lang.Boolean" value="true"/>
+          <Environment name="name3" override="true" type="java.lang.Integer" value="1"/>
+          <Environment name="foo/name4" override="true" type="java.lang.Integer" value="10"/>
+          <Environment name="foo/name1" override="true" type="java.lang.String" value="value1"/>
+          <LocalEjb name="ejb/ProcessOrder" local="com.mycompany.mypackage.ProcessOrder" type="Session" description="Example Local EJB Reference" home="com.mycompany.mypackage.ProcessOrderHome"/>
+          <Resource name="mail/Session" type="javax.mail.Session" scope="Shareable" auth="Container"/>
+          <Resource name="jdbc/EmployeeAppDb" type="javax.sql.DataSource" scope="Shareable" auth="SERVLET"/>
+          <ResourceParams name="mail/Session">
+            <parameter>
+              <name>mail.smtp.host</name>
+              <value>localhost</value>
+            </parameter>
+          </ResourceParams>
+          <ResourceParams name="jdbc/EmployeeAppDb">
+            <parameter>
+              <name>password</name>
+              <value></value>
+            </parameter>
+            <parameter>
+              <name>url</name>
+              <value>jdbc:HypersonicSQL:database</value>
+            </parameter>
+            <parameter>
+              <name>driverClassName</name>
+              <value>org.hsql.jdbcDriver</value>
+            </parameter>
+            <parameter>
+              <name>username</name>
+              <value>sa</value>
+            </parameter>
+          </ResourceParams>
+          <ResourceLink name="linkToGlobalResource" type="java.lang.Integer" global="simpleValue"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/garcuri" cookies="true" path="/garcuri" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/d" cookies="true" path="/d" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/voip" cookies="true" path="/voip" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="true" displayName="Tomcat Manager Application" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="../server/webapps/manager" cookies="true" path="/manager" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+          <ResourceLink name="users" type="org.apache.catalina.UserDatabase" global="UserDatabase"/>
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/a" cookies="true" path="/a" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="/usr/local/jakarta-tomcat4.1/webapps/ns" cookies="true" path="/ns" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Context className="org.apache.catalina.core.StandardContext" crossContext="false" reloadable="false" mapperClass="org.apache.catalina.core.StandardContextMapper" useNaming="true" debug="0" swallowOutput="false" privileged="false" wrapperClass="org.apache.catalina.core.StandardWrapper" docBase="a" cookies="true" path="" cachingAllowed="true" charsetMapperClass="org.apache.catalina.util.CharsetMapper">
+        </Context>
+        <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="www.terzo.dominio_log." directory="logs" timestamp="true" suffix=".txt"/>
+        <Valve className="org.apache.catalina.valves.AccessLogValve" rotatable="false" debug="0" prefix="www.terzo.dominio_access.log" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot;" resolveHosts="true" suffix=""/>
+      </Host>
+      <Logger className="org.apache.catalina.logger.FileLogger" debug="0" verbosity="1" prefix="catalina_log." directory="logs" timestamp="true" suffix=".txt"/>
+      <Realm className="org.apache.catalina.realm.UserDatabaseRealm" debug="0" resourceName="UserDatabase" validate="true"/>
+    </Engine>
+  </Service>
+</Server>

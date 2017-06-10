@@ -1,0 +1,6 @@
+class S{
+}
+%%
+%line
+%char
+%% 

@@ -1,0 +1,4 @@
+Primordial,Java,stdlib,none
+Primordial,Java,jarFile,primordial.jar.model
+Application,Java,binaryDir,build/example-xml/test/xml
+Application,Java,binaryDir,build/example-xml/ch/nunnisoft/xml/parser

@@ -1,0 +1,6 @@
+Primordial,Java,stdlib,none
+Primordial,Java,jarFile,primordial.jar.model
+Application,Java,binaryDir,build/example-schroeder/schroeder/test
+Application,Java,binaryDir,build/example-schroeder/schroeder
+Application,Java,binaryDir,build/example-schroeder/schroeder/action
+Application,Java,binaryDir,build/example-schroeder/schroeder/adapter
