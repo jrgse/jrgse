@@ -22,10 +22,8 @@ RGSE is a regular property guided dynamic symbolic execution (DSE) engine for fi
 
 ----------  
 # **Contacts**
-	(1). Hengbiao Yu : hengbiaoyu@nudt.edu.cn
-	(2). Yufeng Zhang : yuffonzhang@163.com
-	(3). Zhenbang Chen : zbchen@nudt.edu.cn
-
+	(1). rgse4java@gmail.com
+	
 ----------  
 
 [1]. Yufeng Zhang, Zhenbang Chen, Ji Wang, Wei Dong, Zhiming Liu. Regular Property Guided Dynamic Symbolic Execution, in 37th IEEE/ACM International Conference on Software Engineering (ICSE 2015), IEEE Press, pp: 643-653. ([PDF](http://zbchen.github.io/Papers_files/icse2015.pdf))
